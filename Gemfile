@@ -72,3 +72,6 @@ group :test do
 end
 
 # From here all outside the gems i used for my project
+
+# Authentication
+gem 'devise'
