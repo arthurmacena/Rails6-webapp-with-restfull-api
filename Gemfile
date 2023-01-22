@@ -78,3 +78,13 @@ gem 'devise'
 
 # Authorization
 gem 'pundit'
+
+# Grape for API
+gem 'grape'
+gem 'grape-entity'
+gem 'grape_on_rails_routes'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
+
+# Cors for API
+gem 'rack-cors'
