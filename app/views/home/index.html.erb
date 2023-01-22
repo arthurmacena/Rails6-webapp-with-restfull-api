@@ -3,3 +3,8 @@
 
 <p>Aqui está o botão para sua saída </p>
 <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+
+<p>Aqui está o botão para se tornar ativo </p>
+<%= button_to "Ativar", user_activate_index_path(current_user) %>
+<p>Aqui está o botão para se tornar inativo </p>
+<%= button_to "Inativar", user_inactivate_index_path(current_user) %>

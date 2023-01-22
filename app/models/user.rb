@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   enum role: %i[user admin]
   enum status: %i[active inactive]
+
+  def active_for_authentication?
+    super and self.active?
+  end
 end
