@@ -13,6 +13,8 @@ class User < ApplicationRecord
     super and self.active?
   end
 
+  private
+
   def send_welcome_email
     return if Rails.env.test?
 
