@@ -8,10 +8,10 @@ development_and_test: &development_and_test
   LOCAL_DATABASE_USERNAME: 'arthur'
   LOCAL_DATABASE_PASSWORD: ''
   LOCAL_DATABASE_PORT: '5432'
-  REDIS_URL: redis://127.0.0.1
-  REDIS_HOST: localhost
-  REDIS_PORT: 6379
-  REDIS_DB: 0
+  REDIS_URL: 'redis://127.0.0.1'
+  REDIS_HOST: 'localhost'
+  REDIS_PORT: '6379'
+  REDIS_DB: '0'
 test:
   <<: *development_and_test
 development:

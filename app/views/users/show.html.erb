@@ -1,31 +1,27 @@
-<!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    <%= @user.email %>
-    <small>Cadastro do Usuário</small>
+    <small>Usuário</small>
   </h1>
 </section>
 <!-- Main content -->
-<div class="content">
-  <div class="card col-ml-2">
-    <div class="card-body col-xs-12">
-      <!-- general form elements -->
-      <div class="card card-primary">
+<section class="content">
+  <div class="row">
+    <div class="col">
+      <div class="card">
         <div class="card-header with-border">
           <h3 class="card-title">Dados do Usuário</h3>
         </div>
-        <!-- /.card-header -->
         <div class="card-body">
           <div class="row">
-            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group ">
               <%= label_tag User.human_attribute_name('email') %>
               <p class="readonly_form_field"><%= @user.email %>&nbsp;</p>
             </div>
-            <div class="form-group col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group ">
               <%= label_tag User.human_attribute_name('role') %>
               <p class="readonly_form_field"><%= @user.role %>&nbsp;</p>
             </div>
-            <div class="form-group col-xs-12 col-sm-12 col-md-2">
+            <div class="form-group ">
               <%= label_tag User.human_attribute_name('status') %>
               <p class="readonly_form_field"><%= @user.status %>&nbsp;</p>
             </div>
@@ -33,8 +29,9 @@
         </div>
         <!-- /.card-body -->
       </div>
-      <%= link_to 'Voltar', :back, class: 'btn btn-primary' %>
+      <div class="card-footer">
+        <%= link_to 'Voltar', users_path, class: 'btn btn-primary btn-footer' %>
+      </div>
     </div>
   </div>
 </section>
-

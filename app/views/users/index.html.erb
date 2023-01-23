@@ -18,68 +18,105 @@
     <%= link_to 'Novo Usuário', new_user_path, class: 'btn btn-primary btn-lg' %>
     <br>
     <br>
+    <div class="card card-default">
+      <div class="card-body">
+        <form class="form form-multiline form-filter" role="form" method="get">
+          <div class="row">
+            <div class="form-group col-md-2">
+              <%= label_tag User.human_attribute_name('email') %>
+              <%= text_field_tag(:user_email, @user_email, placeholder: 'E-mail do usuário', class: 'form-control') %>
+            </div>
+            <div class="form-group col-md-2">
+              <%= label_tag User.human_attribute_name('role') %>
+              <%= select_tag(:role, options_for_select({ 'Admin': 'admin', 'User': 'user' }, @selected_role), class: 'form-select', include_blank: true) %>
+            </div>
+            <div class="form-group col-md-2">
+              <%= label_tag User.human_attribute_name('status') %>
+              <%= select_tag(:status, options_for_select({ 'Ativo': 'active', 'Inativo': 'inactive' }, @selected_status), class: 'form-select', include_blank: true) %>
+            </div>
+            <div class="form-group col-md-2">
+              <%= label_tag 'Ordenar' %>
+              <%= select_tag(:order_by, options_for_select({ "Email": 'email', "Role": 'role' }, @selected_order_by), class: 'form-select', prompt: false, include_blank: true) %>
+            </div>
+          </div>
+          <div class="form-group col-ml-3">
+            <button type="submit" class="btn btn-default">Filtrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <div class="card-body">
-            <table id="users-table" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th><%= User.human_attribute_name('email') %></th>
-                  <th><%= User.human_attribute_name('role') %></th>
-                  <th><%= User.human_attribute_name('status') %></th>
-                  <th class='actions'>&nbsp;</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @users.each do |user| %>
-                <tr>
-                  <td class="mobile-contents">
-                    <span class="visible-xs"><%= user.email.truncate(30) %></span>
-                  </td>
-                  <td class="mobile-contents">
-                    <%= user.role %>
-                  </td>
-                  <td class="mobile-contents">
-                    <%= user.status %>
-                  </td>
-                  <td class='actions'>
-                    <% if policy(%i[user]).update? %>
-                      <%= link_to edit_user_path(user), class: 'btn btn-primary btn-xs' do %>
-                        <span><i class="fa fa-edit"></i><b>Editar</b></span>
-                      <% end %>
-                    <% end %>
-                    <% if policy(%i[users inactivate]).create? %>
-                      <% if user.active? %>
-                        <%= link_to user_inactivate_index_path(user), method: :post, class: 'btn btn-warning btn-xs' do %>
-                          <span><i class="fa fa-pause"></i><b>Susp.</b></span>
-                        <% end %>
-                      <% else %>
-                        <%= link_to user_activate_index_path(user), method: :post, class: 'btn btn-success btn-xs' do %>
-                          <span><i class="fa fa-play"></i><b>Ativar</b></span>
+          <% if @users_paged.empty? %>
+            <div class="box-body text-center">Para encontrar um usuário, use os filtros acima.</div>
+          <% else %>
+            <div class="card-header">
+              <h3 class="card-title">Quantidade de registros: <%= @users_count %></h3>
+            </div>
+            <div class="card-body">
+              <table id="users-table" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th><%= User.human_attribute_name('email') %></th>
+                    <th><%= User.human_attribute_name('role') %></th>
+                    <th><%= User.human_attribute_name('status') %></th>
+                    <th class='actions'>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @users_paged.each do |user| %>
+                  <tr>
+                    <td class="mobile-contents">
+                      <span class="visible-xs"><%= user.email.truncate(30) %></span>
+                    </td>
+                    <td class="mobile-contents">
+                      <%= user.role %>
+                    </td>
+                    <td class="mobile-contents">
+                      <%= user.status %>
+                    </td>
+                    <td class='actions'>
+                      <% if policy(%i[user]).update? %>
+                        <%= link_to edit_user_path(user), class: 'btn btn-primary btn-xs' do %>
+                          <span><i class="fa fa-edit"></i><b>Editar</b></span>
                         <% end %>
                       <% end %>
-                    <% end %>
-                    <% if policy(%i[user]).destroy? %>
-                      <%= link_to user, method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger btn-xs' do %>
-                        <span><i class="fa fa-remove"></i><b>Apagar</b></span>
+                      <% if policy(%i[users inactivate]).create? %>
+                        <% if user.active? %>
+                          <%= link_to user_inactivate_index_path(user), method: :post, class: 'btn btn-warning btn-xs' do %>
+                            <span><i class="fa fa-pause"></i><b>Susp.</b></span>
+                          <% end %>
+                        <% else %>
+                          <%= link_to user_activate_index_path(user), method: :post, class: 'btn btn-success btn-xs' do %>
+                            <span><i class="fa fa-play"></i><b>Ativar</b></span>
+                          <% end %>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-              <% end %>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th><%= User.human_attribute_name('email') %></th>
-                  <th><%= User.human_attribute_name('role') %></th>
-                  <th><%= User.human_attribute_name('status') %></th>
-                  <th class='actions'>&nbsp;</th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
+                      <% if policy(%i[user]).destroy? %>
+                        <%= button_to user, method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger btn-xs' do %>
+                          <span><i class="fa fa-remove"></i><b>Apagar</b></span>
+                        <% end %>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th><%= User.human_attribute_name('email') %></th>
+                    <th><%= User.human_attribute_name('role') %></th>
+                    <th><%= User.human_attribute_name('status') %></th>
+                    <th class='actions'>&nbsp;</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          <% end %>
           <!-- /.card-body -->
+          <div class="box-footer clearfix">
+            <%= paginate @users_paged %>
+          </div>
         </div>
         <!-- /.card -->
       </div>

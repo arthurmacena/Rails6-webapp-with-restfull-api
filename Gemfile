@@ -23,6 +23,7 @@ gem "jbuilder"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
+gem 'rails-ujs'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -45,6 +46,13 @@ gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry-rails'
+  # Rspec for tests
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  # Factory for development
+  gem 'factory_bot_rails'
+  # For line command debug
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -61,8 +69,13 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem 'rails-controller-testing'
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers'
+  gem 'pundit-matchers'
+  # Set of strategies for cleaning your database
+  gem 'database_cleaner'
 end
 
 # From here all outside the gems i used for my project
@@ -95,3 +108,9 @@ gem 'sidekiq-cron'
 
 # Figaro for managing ENV vabiables
 gem 'figaro'
+
+# Make annonymous data
+gem 'faker'
+
+# Kaminari for paginations
+gem 'kaminari'

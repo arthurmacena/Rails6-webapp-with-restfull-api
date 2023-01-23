@@ -1,23 +1,12 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="/" class="brand-link d-flex">
-    <div id="application-icon-profile" class="elevation-3 font-weight-bold" style="opacity: .8">P</div>
+  <h1 class="brand-link d-flex">
     <span class="brand-text font-weight-light ml-2">Portabilis Challenger</span>
-  </a>
+  </h1>
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div id="admin-user-icon-profile">
-        <%= current_user.email.chr.upcase %>
-      </div>
-      <div class="info">
-        <a href="#"><%= current_user.email %></a>
-      </div>
-    </div>
-
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -25,16 +14,16 @@
               with font-awesome or any other icon font library -->
         <li class="nav-item">
           <%= link_to root_url, class: "nav-link #{controller_name == 'home' ? 'active' : ''}" do %>
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-house"></i>
             <p>Home</p>
           <% end %>
         </li>
         <% if policy(User).index? %>
           <li class="nav-item">
-            <a href="/users" class="nav-link">
-              <i class="nav-icon fa fa-building"></i>
+            <%= link_to users_path, class: "nav-link #{controller_name == 'users' ? 'active' : ''}" do %>
+              <i class="nav-icon fa fa-users"></i>
               <p>Usuários</p>
-            </a>
+            <% end %>
           </li>
         <% end %>
         <li class="nav-item">
