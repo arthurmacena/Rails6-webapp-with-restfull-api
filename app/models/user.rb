@@ -7,7 +7,13 @@ class User < ApplicationRecord
   enum role: %i[user admin]
   enum status: %i[active inactive]
 
+  after_create :send_welcome_email
+
   def active_for_authentication?
     super and self.active?
+  end
+
+  def send_welcome_email
+    UserMailer.with(user_id: id).welcome_email.deliver_later
   end
 end

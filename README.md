@@ -32,6 +32,6 @@ Para a api também foi construída um swagger então, caso haja dúvida de como 
 
 Obs: O método GET ao ser receber algum parâmetro ele será validado para aparecer só aqueles cujo tem o parâmetro correspondente.
 
-Obs2: Os status validos são: "active" e "inactive", active será default.
+Obs2: Os status validos são: "active" e "inactive", "active" será default.
 
-Obs3: As roles validas são: "user" e "admin", user será default.
+Obs3: As roles validas são: "user" e "admin", "user" será default.

@@ -88,3 +88,16 @@ gem 'grape-swagger-rails'
 
 # Cors for API
 gem 'rack-cors'
+
+# Use rich HTML in emails
+gem 'inky-rb', require: 'inky'
+
+# Foreman for start multiple servers
+gem 'foreman'
+
+# Sidekiq for async jobs
+gem 'sidekiq'
+gem 'sidekiq-cron'
+
+# Figaro for managing ENV vabiables
+gem 'figaro'
