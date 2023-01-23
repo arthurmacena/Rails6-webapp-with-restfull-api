@@ -45,6 +45,12 @@ gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # Rspec for tests
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  # Factory for development
+  gem 'factory_bot_rails'
+  # For line command debug
+  gem 'pry-rails'
 end
 
 group :development do
@@ -63,6 +69,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers'
+  gem 'pundit-matchers'
+  # Set of strategies for cleaning your database
+  gem 'database_cleaner'
 end
 
 # From here all outside the gems i used for my project
@@ -95,3 +105,6 @@ gem 'sidekiq-cron'
 
 # Figaro for managing ENV vabiables
 gem 'figaro'
+
+# Make annonymous data
+gem 'faker'
