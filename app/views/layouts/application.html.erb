@@ -1,16 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PortabilisChallenger</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Portabilis Challenger </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header class="main-header">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-white navbar-light">
+          <!-- Left navbar links -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <%= render "layouts/sidebar" %>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+
+        <!-- Alerts -->
+        <div class="flash_wrapper">
+        </div>
+
+        <%= yield %>
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <!-- Default to the left -->
+        <strong>Copyright &copy; <%= Time.zone.now.year %> <a href="#" target="_blank">Portabilis Challenger</a>.</strong> All rights reserved.
+      </footer>
+    <div>
+    <!-- ./wrapper -->
   </body>
+  <!-- Main Footer -->
 </html>
