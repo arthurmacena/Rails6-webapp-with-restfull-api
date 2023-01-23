@@ -1,0 +1,2 @@
+module Users::InactivateHelper
+end

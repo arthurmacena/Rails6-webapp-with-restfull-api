@@ -1,0 +1,40 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <h1 class="brand-link d-flex">
+    <span class="brand-text font-weight-light ml-2">Portabilis Challenger</span>
+  </h1>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+              with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <%= link_to root_url, class: "nav-link #{controller_name == 'home' ? 'active' : ''}" do %>
+            <i class="nav-icon fas fa-house"></i>
+            <p>Home</p>
+          <% end %>
+        </li>
+        <% if policy(User).index? %>
+          <li class="nav-item">
+            <%= link_to users_path, class: "nav-link #{controller_name == 'users' ? 'active' : ''}" do %>
+              <i class="nav-icon fa fa-users"></i>
+              <p>Usuários</p>
+            <% end %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <%= button_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+            <i class="nav-icon fas fa-sign-out-alt"></i>
+            <span>Sair</span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
