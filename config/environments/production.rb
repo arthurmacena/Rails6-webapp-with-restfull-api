@@ -63,6 +63,12 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "PortabilisChallenger_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 25,
+    :user_name => ENV["MANDRILL_USERNAME"],
+    :password  => ENV["MANDRILL_API_KEY"]
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

@@ -1,0 +1,20 @@
+default: &default
+development_and_test: &development_and_test
+  <<: *default
+  HOST: 'http://localhost:3000'
+  HOST_HTTP: 'http://localhost:3000'
+  HOST_HTTPS: 'http://localhost:3000'
+  LOCAL_DATABASE_HOST: 'localhost'
+  LOCAL_DATABASE_USERNAME: 'arthur'
+  LOCAL_DATABASE_PASSWORD: ''
+  LOCAL_DATABASE_PORT: '5432'
+  REDIS_URL: 'redis://127.0.0.1'
+  REDIS_HOST: 'localhost'
+  REDIS_PORT: '6379'
+  REDIS_DB: '0'
+test:
+  <<: *development_and_test
+development:
+  <<: *development_and_test
+production: &production
+  <<: *development_and_test
