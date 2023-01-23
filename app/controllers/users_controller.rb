@@ -3,7 +3,36 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
+    @user_email = params[:user_email]
+    @selected_role = params[:role]
+    @selected_status = params[:status]
+    @selected_order_by = params[:order_by]
+
+
     @users = User.all
+
+    @users = @users.where(email: @user_email) if @user_email.present?
+    @users = @users.where(role: @selected_role) if @selected_role.present?
+
+    @users =  case @selected_status
+              when 'active'
+                @users.active
+              when 'inactive'
+                @users.inactive
+              else
+                @users
+              end
+
+
+    @users =  case @selected_order_by
+              when 'role'
+                @users.reorder(:role)
+              else
+                @users.reorder(:email)
+              end
+
+    @users_count = @users.size
+    @users_paged = @users.page params[:page]
     authorize @users
   end
 

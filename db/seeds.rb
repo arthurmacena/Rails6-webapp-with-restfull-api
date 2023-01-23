@@ -8,3 +8,7 @@
 User.create(email: 'admin@example.com', password: '123456', password_confirmation: '123456', role: 'admin')
 User.create(email: 'user@example.com', password: '123456', password_confirmation: '123456')
 User.create(email: 'inactiveuser@example.com', password: '123456', password_confirmation: '123456', status: 'inactive')
+
+25.times do
+  FactoryBot.create(:user)
+end

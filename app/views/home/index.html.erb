@@ -1,10 +1,8 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
-<p>Aqui está o botão para sua saída </p>
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-
-<p>Aqui está o botão para se tornar ativo </p>
-<%= button_to "Ativar", user_activate_index_path(current_user) %>
-<p>Aqui está o botão para se tornar inativo </p>
-<%= button_to "Inativar", user_inactivate_index_path(current_user) %>
+<center>
+  <h1>Bem-vindo ao Portabilis Challenger </h1>
+  <h1> <%= current_user.email %> </h1>
+  <h5>Para ir ao registro de usuários basta usar a sidebar ao lado</h5>
+  </br>
+  </br>
+  <h5>Caso deseje encerrar a sessão, na sidebar também temos a opção!</h5>
+</center>
