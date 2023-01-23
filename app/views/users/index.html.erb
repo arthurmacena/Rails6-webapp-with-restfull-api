@@ -84,11 +84,11 @@
                       <% end %>
                       <% if policy(%i[users inactivate]).create? %>
                         <% if user.active? %>
-                          <%= link_to user_inactivate_index_path(user), method: :post, class: 'btn btn-warning btn-xs' do %>
+                          <%= button_to user_inactivate_index_path(user), method: :post, class: 'btn btn-warning btn-xs' do %>
                             <span><i class="fa fa-pause"></i><b>Susp.</b></span>
                           <% end %>
                         <% else %>
-                          <%= link_to user_activate_index_path(user), method: :post, class: 'btn btn-success btn-xs' do %>
+                          <%= button_to user_activate_index_path(user), method: :post, class: 'btn btn-success btn-xs' do %>
                             <span><i class="fa fa-play"></i><b>Ativar</b></span>
                           <% end %>
                         <% end %>
