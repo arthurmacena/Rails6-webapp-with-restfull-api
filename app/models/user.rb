@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  after_create :send_welcome_email
+
   enum role: %i[user admin]
   enum status: %i[active inactive]
-
-  after_create :send_welcome_email
 
   def active_for_authentication?
     super and self.active?

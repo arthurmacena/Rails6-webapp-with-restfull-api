@@ -22,6 +22,21 @@
 .form-signin .form-control:focus {
   z-index: 2;
 }
+
 .field {
   margin: 10px 0;
+}
+
+.session-login-box {
+  border-right: 1px solid #d0d0d0;
+}
+
+#login-card {
+  width: 30%;
+  margin: auto;
+}
+
+#title-register{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
