@@ -6,23 +6,11 @@ ruby "3.0.3"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 6.1.3'
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
-
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
-
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
-
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -35,6 +23,7 @@ gem "jbuilder"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
+gem 'rails-ujs'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -42,6 +31,12 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Use SCSS for stylesheets
+gem 'sass-rails', '>= 6'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker'
+# Bootstrap 3.4.1 (sass version)
+gem 'bootstrap-sass'
 # Use Sass to process CSS
 gem "sassc-rails"
 
@@ -51,6 +46,13 @@ gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry-rails'
+  # Rspec for tests
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  # Factory for development
+  gem 'factory_bot_rails'
+  # For line command debug
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -67,11 +69,48 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem 'rails-controller-testing'
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers'
+  gem 'pundit-matchers'
+  # Set of strategies for cleaning your database
+  gem 'database_cleaner'
 end
 
 # From here all outside the gems i used for my project
 
 # Authentication
 gem 'devise'
+
+# Authorization
+gem 'pundit'
+
+# Grape for API
+gem 'grape'
+gem 'grape-entity'
+gem 'grape_on_rails_routes'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
+
+# Cors for API
+gem 'rack-cors'
+
+# Use rich HTML in emails
+gem 'inky-rb', require: 'inky'
+
+# Foreman for start multiple servers
+gem 'foreman'
+
+# Sidekiq for async jobs
+gem 'sidekiq'
+gem 'sidekiq-cron'
+
+# Figaro for managing ENV vabiables
+gem 'figaro'
+
+# Make annonymous data
+gem 'faker'
+
+# Kaminari for paginations
+gem 'kaminari'

@@ -1,0 +1,37 @@
+<section class="content-header">
+  <h1>
+    <small>Usuário</small>
+  </h1>
+</section>
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header with-border">
+          <h3 class="card-title">Dados do Usuário</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group ">
+              <%= label_tag User.human_attribute_name('email') %>
+              <p class="readonly_form_field"><%= @user.email %>&nbsp;</p>
+            </div>
+            <div class="form-group ">
+              <%= label_tag User.human_attribute_name('role') %>
+              <p class="readonly_form_field"><%= @user.role %>&nbsp;</p>
+            </div>
+            <div class="form-group ">
+              <%= label_tag User.human_attribute_name('status') %>
+              <p class="readonly_form_field"><%= @user.status %>&nbsp;</p>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <div class="card-footer">
+        <%= link_to 'Voltar', users_path, class: 'btn btn-primary btn-footer' %>
+      </div>
+    </div>
+  </div>
+</section>

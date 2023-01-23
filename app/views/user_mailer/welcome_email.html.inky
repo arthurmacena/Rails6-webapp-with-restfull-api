@@ -1,0 +1,39 @@
+<spacer size="16"></spacer>
+<container>
+  <spacer size="24"></spacer>
+  <row>
+    <columns small="12">
+      <br>
+      <p class="lead">Olá, <%= @user.email %>!</p>
+      <br>
+      <p style="color: #484848; line-height: 1.5;">
+        Obrigado por se cadastrar em nossos serviços.
+      </p>
+      <br>
+      <p style="color: #484848; line-height: 1.5;">
+        Nos siga nas nossas redes sociais
+      </p>
+      <br>
+      <div align="center">
+        <table role="presentation" style="border-collapse:collapse;border:0;border-spacing:0;display:flex;justify-content: center;">
+          <tr>
+            <td style="padding:5px;">
+              <a href="#"><%= email_image_tag("instagram.png") %></a>
+            </td>
+            <td style="padding:5px;">
+              <a href="#"><%= email_image_tag("tik-tok.png") %></a>
+            </td>
+            <td style="padding:5px;">
+              <a href="#"><%= email_image_tag("facebook.png") %></a>
+            </td>
+            <td style="padding:5px;">
+              <a href="#"><%= email_image_tag("youtube.png") %></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <spacer size="24"></spacer>
+    </column>
+  </row>
+</container>
+<spacer size="16"></spacer>
