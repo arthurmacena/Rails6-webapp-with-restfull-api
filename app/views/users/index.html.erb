@@ -61,7 +61,7 @@
                       <% end %>
                     <% end %>
                     <% if policy(%i[user]).destroy? %>
-                      <%= link_to user, method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger btn-xs' do %>
+                      <%= button_to user, method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger btn-xs' do %>
                         <span><i class="fa fa-remove"></i><b>Apagar</b></span>
                       <% end %>
                     <% end %>

@@ -1,7 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'support/factory_bot'
 require 'faker'
+require 'support/factory_bot'
 require 'capybara/rspec'
 require 'pundit/matchers'
 require "shoulda/matchers"
@@ -87,5 +87,10 @@ RSpec.configure do |config|
   Pundit::Matchers.configure do |config|
     config.user_alias = :account
   end
+
+  Faker::Config.locale = 'en'
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend UserRolesLogin, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
 end

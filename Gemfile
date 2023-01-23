@@ -45,12 +45,13 @@ gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry-rails'
   # Rspec for tests
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   # Factory for development
   gem 'factory_bot_rails'
   # For line command debug
-  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -67,6 +68,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem 'rails-controller-testing'
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'shoulda-matchers'

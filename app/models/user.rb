@@ -14,6 +14,8 @@ class User < ApplicationRecord
   end
 
   def send_welcome_email
+    return if Rails.env.test?
+
     UserMailer.with(user_id: id).welcome_email.deliver_later
   end
 end

@@ -7,5 +7,9 @@ FactoryBot.define do
     factory :user_admin do
       role { 'admin' }
     end
+
+    factory :user_normal do
+      role { 'user' }
+    end
   end
 end
