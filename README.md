@@ -56,19 +56,23 @@ Para fazer os testes automatizados foi utilizado foi utilizado o rspec, para pod
 ## Frontend Clean
 Para o frontend foi utilizado a biblioteca de CSS do bootstrap 5 junto ao adminlte 3, para obter views mais padronizadas.
 
-## Exemplos de Requisições
+## Exemplos de Requisições 
 
 _Criar Usuário_:
 
 [POST] localhost:3000/api/v1/users
+
 envio:
+
 {
 	"email": "teste@example.com",
 	"password": "123123",
 	"role": "user",
 	"status": "active"
 }
+
 retorno:
+
 {
 	"data": {
 		"id": 35,
@@ -83,12 +87,17 @@ retorno:
 }
 
 _Tornar Usuário Inativo_:
+
 [PUT] localhost:3000/api/v1/users/35
+
 envio:
+
 {
 	"status": "inactive"
 }
+
 retorno:
+
 {
 	"data": {
 		"id": 35,
