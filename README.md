@@ -60,7 +60,7 @@ Para o frontend foi utilizado a biblioteca de CSS do bootstrap 5 junto ao adminl
 
 _Criar Usuário_:
 
-[POST] localhost:3000/api/v1/users
++ [POST] localhost:3000/api/v1/users
 
 envio:
 
@@ -88,7 +88,7 @@ retorno:
 
 _Tornar Usuário Inativo_:
 
-[PUT] localhost:3000/api/v1/users/35
++ [PUT] localhost:3000/api/v1/users/35
 
 envio:
 
