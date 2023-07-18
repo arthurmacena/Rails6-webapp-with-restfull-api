@@ -1,5 +1,4 @@
-# PortabilisChallenger
-Here i gonna do a rails 6 web app with an api RESTful for portabilis challenger.
+# Here i gonna do a rails 6 web app with an api RESTful for portabilis challenger.
 
 ## Usando o asdf para controle de versões.
 Algumas referências para o uso caso necessário.
